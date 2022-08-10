@@ -13,7 +13,7 @@ namespace PayCore_HW1.Controllers
     public class InterestController : ControllerBase
     {
         [HttpGet] 
-        public ActionResult<Interest> Calculator(double balance,double interestRate,double year)
+        public ActionResult<Interest> CalculatorGetMethod(double balance,double interestRate,double year)
         {
             Interest interest = new Interest();//Interest sınıfından interest adında bir nesne türetildi.
             if((balance < 0 || interestRate < 0 || year < 0))//Gelen değerlerin 0'dan küçük olma durumları kontrol edildi.
