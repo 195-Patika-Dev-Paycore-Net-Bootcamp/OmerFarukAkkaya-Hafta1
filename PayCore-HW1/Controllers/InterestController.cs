@@ -13,12 +13,12 @@ namespace PayCore_HW1.Controllers
     public class InterestController : ControllerBase
     {
         [HttpGet] 
-        public ActionResult<Interest> CalculatorGetMethod(double balance,double interestRate,double year)
+        public ActionResult<Interest> GetCalculatorsMethod(double balance,double interestRate,double year)
         {
             Interest interest = new Interest();//Interest sınıfından interest adında bir nesne türetildi.
             if((balance < 0 || interestRate < 0 || year < 0))//Gelen değerlerin 0'dan küçük olma durumları kontrol edildi.
             {
-                return BadRequest(interest);//Eğer değerlerden biri 0'dan küçük gelirse BadRequest yani 400 Http kodu döndürüldü.
+                return BadRequest();//Eğer değerlerden biri 0'dan küçük gelirse BadRequest yani 400 Http kodu döndürüldü.
             }
             var compoundInterest = balance * Math.Pow(1 + (interestRate / 100), year);//Bileşik faiz hesaplanıp compountInterest değerine atandı.
 
